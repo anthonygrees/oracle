@@ -32,7 +32,8 @@ user 'oracli' do
   gid node[:oracle][:cliuser][:gid]
   shell node[:oracle][:cliuser][:shell]
   comment 'Oracle Administrator'
-  supports :manage_home => true
+#  supports :manage_home => true
+  manage_home true
 end
 
 yum_package File.basename(node[:oracle][:cliuser][:shell])
