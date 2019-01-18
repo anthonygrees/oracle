@@ -27,6 +27,8 @@ group 'oinstall' do
   gid node[:oracle][:user][:gid]
 end
 
+## AR
+
 user 'oracle' do
   uid node[:oracle][:user][:uid]
   gid node[:oracle][:user][:gid]
