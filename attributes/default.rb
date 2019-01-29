@@ -95,6 +95,8 @@ default[:oracle][:client][:env] = {'ORACLE_BASE' => node[:oracle][:ora_base],
 
 # Install media file for the Oracle Client
 default[:oracle][:client][:install_files] = ['https://https-server.example.localdomain/path/to/p10404530_112030_Linux-x86-64_4of7.zip']
+default[:oracle][:client][:install_file1] = ['https://https-server.example.localdomain/path/to/p10404530_112030_Linux-x86-64_1of2.zip']
+default[:oracle][:client][:install_file2] = ['https://https-server.example.localdomain/path/to/p10404530_112030_Linux-x86-64_2of2.zip']
 
 # Passwords set by createdb.rb for the default open database users.
 # By order of appearance, those are: SYS, SYSTEM and DBSNMP.
