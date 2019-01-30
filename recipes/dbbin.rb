@@ -54,29 +54,29 @@ yum_package 'unzip'
 # node[:oracle][:rdbms][:install_files].each do |zip_file|
 
 # Run for first file
-  execute "fetch_oracle_media_#{node[:oracle][:rdbms][:install_file1}" do
-    command "curl #{node[:oracle][:curl_options]} #{node[:oracle][:rdbms][:install_file1}"
+  execute "fetch_oracle_media_#{node[:oracle][:rdbms][:install_file1]}" do
+    command "curl #{node[:oracle][:curl_options]} #{node[:oracle][:rdbms][:install_file1]}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
   end
 
-  execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file1}" do
-    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file1)}"
+  execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file1]}" do
+    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file1])}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
   end
  # Run for second file
-  execute "fetch_oracle_media_#{node[:oracle][:rdbms][:install_file2}" do
-    command "curl #{node[:oracle][:curl_options]} #{node[:oracle][:rdbms][:install_file2}"
+  execute "fetch_oracle_media_#{node[:oracle][:rdbms][:install_file2]}" do
+    command "curl #{node[:oracle][:curl_options]} #{node[:oracle][:rdbms][:install_file2]}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
   end
 
-  execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file2}" do
-    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file2)}"
+  execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file2]}" do
+    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file2])}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
