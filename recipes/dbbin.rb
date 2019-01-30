@@ -51,21 +51,37 @@ yum_package 'unzip'
 # Fetching the install media with curl and unzipping them.
 # We run two resources to avoid chef-client's runaway memory usage resulting
 # in the kernel killing it.
-node[:oracle][:rdbms][:install_files].each do |zip_file|
-  execute "fetch_oracle_media_#{zip_file}" do
-    command "curl #{node[:oracle][:curl_options]} #{zip_file}"
+# node[:oracle][:rdbms][:install_files].each do |zip_file|
+
+# Run for first file
+  execute "fetch_oracle_media_#{node[:oracle][:rdbms][:install_file1}" do
+    command "curl #{node[:oracle][:curl_options]} #{node[:oracle][:rdbms][:install_file1}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
   end
 
-  execute "unzip_oracle_media_#{zip_file}" do
-    command "unzip #{File.basename(zip_file)}"
+  execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file1}" do
+    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file1)}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
   end
-end
+ # Run for second file
+  execute "fetch_oracle_media_#{node[:oracle][:rdbms][:install_file2}" do
+    command "curl #{node[:oracle][:curl_options]} #{node[:oracle][:rdbms][:install_file2}"
+    user "oracle"
+    group 'oinstall'
+    cwd node[:oracle][:rdbms][:install_dir]
+  end
+
+  execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file2}" do
+    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file2)}"
+    user "oracle"
+    group 'oinstall'
+    cwd node[:oracle][:rdbms][:install_dir]
+  end
+# end
 
 # This oraInst.loc specifies the standard oraInventory location.
 file "#{node[:oracle][:ora_base]}/oraInst.loc" do
