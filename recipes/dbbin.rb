@@ -76,7 +76,7 @@ yum_package 'unzip'
   end
 
   execute "unzip_oracle_media_#{node[:oracle][:rdbms][:install_file2]}" do
-    command "unzip #{File.basename(node[:oracle][:rdbms][:install_file2])}"
+    command "unzip #{File.basename(#{node[:oracle][:rdbms][:install_file2]})}"
     user "oracle"
     group 'oinstall'
     cwd node[:oracle][:rdbms][:install_dir]
